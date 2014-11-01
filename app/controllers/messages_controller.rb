@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
       to: "+5216621690875",
       body: body("Pancho Villa", "Revolución!!!", "Texto de prueba")
     )
+    @body = body("Pancho Villa", "Revolución!!!", "Texto de prueba")
   end
 
   def receive
