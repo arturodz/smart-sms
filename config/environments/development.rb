@@ -31,6 +31,8 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  config.action_mailer.delivery_method = :sendgrid_actionmailer
+  config.action_mailer.sendgrid_actionmailer_settings = {api_user: 'arturodz', api_key: '91arturo148'}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
