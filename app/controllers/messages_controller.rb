@@ -2,20 +2,11 @@ class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   respond_to :json
 
-  def create
-    client.messages.create(
-      from: "+15209993914",
-      to: "+5216621690875",
-      body: body("Pancho Villa", "Revolución!!!", "Texto de prueba")
-    )
-
-    render json: nil, status: 200
-  end
 
   def receive
     to_sub = /^[^\ ]*/.match(params['Body'])[0]
     to = /^[^\ ]*/.match(params['Body'])[0].gsub('(at)','@')
-    from = params['From'].gsub('+','00') + "@mxhack.bymail.in"
+    from = params['From'].gsub('+52','00521') + "@mxhack.bymail.in"
     body = params['Body'].gsub(to_sub,'')
 
     puts to
