@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
 
   get '/send_sms' => 'messages#create' 
   get '/receive_sms' => 'messages#receive'
