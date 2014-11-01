@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
 
     client.messages.create(
       from: "+15209993914",
-      to: to.gsub('@mxhack.bymail.in',''),
+      to: to.gsub('@mxhack.bymail.in','').gsub('00','+'),
       body: "De: #{from}. Asunto: #{subject}. Mensaje: #{text}"
     )
 
