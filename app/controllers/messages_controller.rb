@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   def receive
     puts params["Body"]
-    client.message.create(
+    client.messages.create(
       from: "+15209993914",
       to: params["From"],
       body: "Me escribiste: #{params['Body']}"
