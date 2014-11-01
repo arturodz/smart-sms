@@ -13,14 +13,23 @@ class MessagesController < ApplicationController
   end
 
   def receive
-    client.messages.create(
-      from: "+15209993914",
-      to: params["From"],
-      body: "Me escribiste: #{params['Body']}"
-    )
+    to = /^[^\ ]*/.match(params['Body'])[0]
+    from = params['From']
+    body = params['Body'].gsub(to,'')
+
+    mail = SendGrid::Mail.new do |m|
+      m.to = to
+      m.from = "#{from}@mxhack.bymail.in"
+      m.subject = "Correo de #{from}"
+      m.text = body
+    end
+
+    puts client.send(mail) 
 
     render json: nil, status: 200
   end
+
+  /^[^\ ]*/
 
   def incoming_mail
     to = params['to']
