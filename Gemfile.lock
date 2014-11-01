@@ -56,6 +56,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.2)
     multi_json (1.10.1)
+    netrc (0.8.0)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -85,6 +86,9 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -94,6 +98,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sendgrid-actionmailer (0.0.4)
+      sendgrid-ruby (~> 0.0)
+    sendgrid-ruby (0.0.3)
+      rest-client
+      smtpapi
+    smtpapi (0.0.8)
     spring (1.1.3)
     sprockets (2.11.3)
       hike (~> 1.2)
@@ -139,6 +149,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  sendgrid-actionmailer
   spring
   turbolinks
   twilio-ruby (~> 3.12)

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/send_sms' => 'messages#create' 
   get '/receive_sms' => 'messages#receive'
+  get '/incoming_mail' => 'messages#incoming_mail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

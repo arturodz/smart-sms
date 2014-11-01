@@ -44,5 +44,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'twilio-ruby', '~> 3.12'
+gem 'sendgrid-actionmailer'
 ruby "2.1.2"
 
