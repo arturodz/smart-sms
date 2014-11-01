@@ -23,9 +23,11 @@ class MessagesController < ApplicationController
   end
 
   def incoming_mail
+
+
     client.messages.create(
       from: "+15209993914",
-      to: /\d/.match(params['to']),
+      to: params['to'].gsub('@mxhack.bymail.in','')
       body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}")
     )
 
