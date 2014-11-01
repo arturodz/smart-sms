@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
       to: "+5216621690875",
       body: body("Pancho Villa", "Revolución!!!", "Texto de prueba")
     )
+
+    render json: nil, status: 200
   end
 
   def receive
@@ -16,9 +18,13 @@ class MessagesController < ApplicationController
       to: params["From"],
       body: "Me escribiste: #{params['Body']}"
     )
+
+    render json: nil, status: 200
   end
 
   def incoming_mail
     puts params["To"]
+    
+    render json: nil, status: 200
   end
 end
