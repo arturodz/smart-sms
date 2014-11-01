@@ -9,11 +9,10 @@ class MessagesController < ApplicationController
   end
 
   def receive
-    twiml = Twilio::TwiML::Response.new do |r|
-      r.Message do |message|
-        message.Body "Hello to you"
-      end
-    end
-    twiml.text
+    client.message.create(
+      from: "+15209993914",
+      to: params['From'],
+      body: "Me escribiste: #{params['Body']}"
+    )
   end
 end
