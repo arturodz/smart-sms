@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
   def incoming_mail
     client.messages.create(
       from: "+15209993914",
-      to: /\d/.match(params["to"],
+      to: /\d/.match(params["to"]),
       body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}")
     )
 
