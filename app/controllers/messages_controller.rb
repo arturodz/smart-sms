@@ -23,6 +23,8 @@ class MessagesController < ApplicationController
     puts "Correo de #{from}"
     puts body
 
+    client = SendGrid::Client.new(api_user: 'arturodz', api_key: 'textmail')
+
     mail = SendGrid::Mail.new do |m|
       m.to = to
       m.from = from
@@ -30,7 +32,7 @@ class MessagesController < ApplicationController
       m.text = body
     end
 
-    client.send(mail) 
+    puts client.send(mail)
 
     render json: nil, status: 200
   end
