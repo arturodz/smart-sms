@@ -17,6 +17,11 @@ class MessagesController < ApplicationController
     from = params['From']
     body = params['Body'].gsub(to,'')
 
+    puts to
+    puts "#{from.gsub('+','00')}@mxhack.bymail.in"
+    puts "Correo de #{from}"
+    puts body
+
     mail = SendGrid::Mail.new do |m|
       m.to = to
       m.from = "#{from.gsub('+','00')}@mxhack.bymail.in"
