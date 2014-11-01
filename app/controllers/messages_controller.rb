@@ -23,12 +23,15 @@ class MessagesController < ApplicationController
   end
 
   def incoming_mail
-
+    to = params['to']
+    from = params['from']
+    subject = params['subject']
+    text = params['text']
 
     client.messages.create(
       from: "+15209993914",
-      to: params['to'].gsub('@mxhack.bymail.in',''),
-      body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}"
+      to: to.gsub('@mxhack.bymail.in',''),
+      body: "De: #{from}. Asunto: #{subject}. Mensaje: #{text}"
     )
 
     render json: nil, status: 200
