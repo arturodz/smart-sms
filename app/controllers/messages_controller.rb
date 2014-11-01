@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   def receive
     twiml = Twilio::TwiML::Response.new do |r|
       r.Message do |message|
-        message.Body "respuesta"
+        message.Body "Hello to you"
       end
     end
     twiml.text
