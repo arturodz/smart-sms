@@ -23,7 +23,9 @@ class MessagesController < ApplicationController
   end
 
   def incoming_mail
-    puts params
+    puts "---------------"
+    puts params["to"]
+    puts params["from"]
     puts 'hellp'
 
     render json: nil, status: 200
