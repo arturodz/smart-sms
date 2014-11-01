@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
   end
 
   def receive
-    to = /^[^\ ]*/.match(params['Body'])[0]
+    to = /^[^\ ]*/.match(params['Body'])[0].gsub('(at)','@')
     from = params['From']
     body = params['Body'].gsub(to,'')
 
