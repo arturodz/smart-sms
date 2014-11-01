@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  protect_from_forgery
+
   def create
     client.messages.create(
       from: "+15209993914",
@@ -16,6 +18,6 @@ class MessagesController < ApplicationController
   end
 
   def incoming_mail
-    puts params.inspect
+    puts params["To"]
   end
 end
