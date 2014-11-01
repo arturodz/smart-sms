@@ -23,10 +23,11 @@ class MessagesController < ApplicationController
   end
 
   def incoming_mail
-    puts "---------------"
-    puts params["to"]
-    puts params["from"]
-    puts 'hellp'
+    client.messages.create(
+      from: "+15209993914",
+      to: /\d/.match(params["to"],
+      body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}")
+    )
 
     render json: nil, status: 200
   end
