@@ -13,9 +13,10 @@ class MessagesController < ApplicationController
   end
 
   def receive
+    to_sub = /^[^\ ]*/.match(params['Body'])[0]
     to = /^[^\ ]*/.match(params['Body'])[0].gsub('(at)','@')
-    from = params['From']
-    body = params['Body'].gsub(to,'')
+    from = params['From'].gsub('+','00') + "@mxhack.bymail.in"
+    body = params['Body'].gsub(to_sub,'')
 
     puts to
     puts "#{from.gsub('+','00')}@mxhack.bymail.in"
@@ -24,12 +25,12 @@ class MessagesController < ApplicationController
 
     mail = SendGrid::Mail.new do |m|
       m.to = to
-      m.from = "#{from.gsub('+','00')}@mxhack.bymail.in"
+      m.from = from
       m.subject = "Correo de #{from}"
       m.text = body
     end
 
-    puts client.send(mail) 
+    client.send(mail) 
 
     render json: nil, status: 200
   end

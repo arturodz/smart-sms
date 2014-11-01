@@ -44,6 +44,7 @@ Rails.application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
@@ -79,4 +80,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :sendgrid_actionmailer
+  config.action_mailer.sendgrid_actionmailer_settings = {api_user: 'arturodz', api_key: '91arturo148'}
 end
