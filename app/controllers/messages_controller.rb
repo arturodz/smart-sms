@@ -14,5 +14,6 @@ class MessagesController < ApplicationController
       to: params['From'],
       body: "Me escribiste: #{params['Body']}"
     )
+    puts params['Body']
   end
 end
