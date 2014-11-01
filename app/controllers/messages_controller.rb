@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
 
     mail = SendGrid::Mail.new do |m|
       m.to = to
-      m.from = "#{from}@mxhack.bymail.in"
+      m.from = "#{from.gsub('+','00')}@mxhack.bymail.in"
       m.subject = "Correo de #{from}"
       m.text = body
     end
