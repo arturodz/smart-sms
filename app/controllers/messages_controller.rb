@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     client.messages.create(
       from: "+15209993914",
       to: params['to'].gsub('@mxhack.bymail.in',''),
-      body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}")
+      body: "De: #{params['from']}. Asunto: #{params['subject']}. Mensaje: #{params['text']}"
     )
 
     render json: nil, status: 200
