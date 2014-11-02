@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   
 
   def client
-    account_sid = 'XXXX'
-    auth_token = 'XXXX'
+    account_sid = 'ACbb49022bd031a99d9967595de4d4216a'
+    auth_token = '5be587638d9fa909c1ab0f116974dc65'
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
